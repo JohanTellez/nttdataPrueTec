@@ -1,0 +1,42 @@
+<div class="container mt-5">
+
+  <div class="container mt-5">
+    <div class="card border-info">
+      <h5 class="card-header bg-transparent border-info text-primary">Resumen de Información del Cliente</h5>
+      <div class="card-body">
+        <div *ngIf="dataClient">
+          <table class="table">
+            <tbody>
+              <tr>
+                <th scope="row" class="text-info">Tipo de Documento:</th>
+                <td>{{ dataClient.documentType }}</td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-info">Número de Documento:</th>
+                <td>{{ dataClient.documentNumber }}</td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-info">Nombre:</th>
+                <td>{{ dataClient.name }}</td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-info">Dirección:</th>
+                <td>{{ dataClient.address }}</td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-info">Número de Teléfono:</th>
+                <td>{{ dataClient.numberPhone }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="btn btn-primary" (click)="goToDataEntry()"><strong>Regresar</strong></button>
+        </div>
+        <br>
+        <div *ngIf="!dataClient" class="alert alert-warning" role="alert">
+          No hay información del cliente disponible.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <div class="card border-info">
+    <h5 class="card-header bg-transparent border-info text-primary">Ingrese de Información del Cliente</h5>
+    <div class="card-body">
+      <form (ngSubmit)="searchClient()">
+        <div class="form-group">
+          <label for="documentType" class="text-info"><strong>Tipo de Documento</strong></label>
+          <select class="form-control" id="documentType" [(ngModel)]="documentType" name="documentType" required>
+            <option value="" disabled selected>Seleccione un tipo de documento</option>
+            <option value="CC">Cédula de Ciudadanía</option>
+            <option value="CE">Cédula extranjera</option>
+            <option value="DI">Documento de identidad</option>
+            <option value="NIT">NIT</option>
+            <option value="PAS">Pasaporte</option>
+          </select>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="documentNumber" class="text-info"><strong>Número de Documento</strong></label>
+          <input type="text" class="form-control" id="documentNumber" placeholder="0" [(ngModel)]="documentNumber" name="documentNumber" required minlength="8" maxlength="14" (input)="formatDocumentNumber()">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary" [disabled]="!isValidForm()"><strong>Buscar</strong></button>
+      </form>
+      <br>
+      <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+</div>
